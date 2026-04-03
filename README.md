@@ -445,14 +445,14 @@ Internal invariants are checked during development. Set `NODE_ENV=production` to
 ## Development
 
 ```bash
-npm install          # install dependencies
-npm run build        # build ESM + CJS with tsup
-npm test             # run tests with vitest
+npm install           # install dependencies
+npm run build         # build ESM + CJS with tsup
+npm test              # run tests with vitest
 npm run test:coverage # run tests with coverage report
-npm run test:watch   # run tests in watch mode
-npm run bench:parser # run parser throughput benchmark scenarios
-npm run lint         # eslint + tsc type check
-npm run typecheck    # run TypeScript type-check only
-npm run lint:fix     # auto-fix lint issues
-npm run verify       # lint + tests + build + package dry-run
+npm run test:watch    # run tests in watch mode
+npm run bench:parser  # run parser throughput benchmark scenarios
+npm run lint          # eslint + tsc type check
+npm run typecheck     # run TypeScript type-check only
+npm run lint:fix      # auto-fix lint issues
+npm run verify        # lint + tests + build + package dry-run
 ```
