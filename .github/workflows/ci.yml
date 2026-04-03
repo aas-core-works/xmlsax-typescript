@@ -1,0 +1,59 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - "**"
+  pull_request:
+
+jobs:
+  test-and-lint:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [18, 20, 22]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v6
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Lint
+        run: npm run lint
+
+      - name: Unit tests (coverage gate)
+        if: matrix.node-version == 20
+        run: npm run test:coverage
+
+      - name: Unit tests
+        if: matrix.node-version != 20
+        run: npm test
+
+      - name: Integration tests
+        run: npm run test:integration
+
+      - name: Fuzz tests
+        run: npm run test:fuzz
+
+      - name: Build artifacts
+        if: matrix.node-version == 20
+        run: npm run build
+
+      - name: Package dry-run
+        if: matrix.node-version == 20
+        run: npm pack --dry-run
+
+      - name: ESM export smoke check
+        if: matrix.node-version == 20
+        run: node --input-type=module -e "const mod = await import('./dist/index.js'); if (!mod.XmlSaxParser) throw new Error('Missing XmlSaxParser export');"
+
+      - name: CJS export smoke check
+        if: matrix.node-version == 20
+        run: node -e "const mod = require('./dist/index.cjs'); if (!mod.XmlSaxParser) { throw new Error('Missing XmlSaxParser export'); }"

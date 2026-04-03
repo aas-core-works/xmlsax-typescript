@@ -1,0 +1,69 @@
+{
+  "name": "xmlsax-typescript",
+  "version": "0.0.1",
+  "description": "One-pass, streaming (SAX-style) XML parser for TypeScript (Node.js & browsers)",
+  "author": "aas-core-works",
+  "keywords": [
+    "xml",
+    "sax",
+    "parser",
+    "streaming",
+    "typescript",
+    "one-pass"
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/aas-core-works/xmlsax-typescript"
+  },
+  "bugs": {
+    "url": "https://github.com/aas-core-works/xmlsax-typescript/issues"
+  },
+  "homepage": "https://github.com/aas-core-works/xmlsax-typescript#readme",
+  "engines": {
+    "node": ">=18"
+  },
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE",
+    "CHANGELOG.md"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "test": "vitest run",
+    "test:coverage": "vitest run --coverage",
+    "test:watch": "vitest",
+    "test:integration": "vitest run tests/integration",
+    "test:fuzz": "vitest run tests/fuzz",
+    "bench:parser": "npm run build && node benchmarks/parser.benchmark.mjs",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "lint": "eslint . && npm run typecheck",
+    "lint:eslint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "verify": "npm run lint && npm run test && npm run test:integration && npm run test:fuzz && npm run build && npm pack --dry-run"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "@types/node": "^25.2.2",
+    "@vitest/coverage-v8": "^4.0.18",
+    "eslint": "^10.0.2",
+    "fast-check": "^4.5.3",
+    "tsup": "^8.0.0",
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.58.0",
+    "vitest": "^4.0.18"
+  }
+}
+
