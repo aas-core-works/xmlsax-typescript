@@ -1,7 +1,7 @@
 # xmlsax-typescript
 
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.6+-blue?logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
-[![Node.js](https://img.shields.io/badge/Node.js-%E2%89%A518-green?logo=node.js&logoColor=white)](https://nodejs.org/)
+[![Node.js](https://img.shields.io/badge/Node.js-%E2%89%A520-green?logo=node.js&logoColor=white)](https://nodejs.org/)
 [![zero dependencies](https://img.shields.io/badge/dependencies-0-brightgreen)](./package.json)
 
 > One-pass, streaming (SAX-style) XML parser for TypeScript — works in Node.js and browsers.
@@ -404,7 +404,7 @@ try {
 
 ## Compatibility and Security Notes
 
-- Runtime support: Node.js 18+ and modern browsers.
+- Runtime support: Node.js 20+ and modern browsers.
 - XML input is parsed from JavaScript strings.
 - For untrusted XML input, disable doctype parsing:
 
