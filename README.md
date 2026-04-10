@@ -3,6 +3,7 @@
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.6+-blue?logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
 [![Node.js](https://img.shields.io/badge/Node.js-%E2%89%A520-green?logo=node.js&logoColor=white)](https://nodejs.org/)
 [![zero dependencies](https://img.shields.io/badge/dependencies-0-brightgreen)](./package.json)
+[![Coverage Status](https://coveralls.io/repos/github/aas-core-works/xmlsax-typescript/badge.svg?branch=mristin/Add-coveralls)](https://coveralls.io/github/aas-core-works/xmlsax-typescript?branch=mristin/Add-coveralls)
 
 > One-pass, streaming (SAX-style) XML parser for TypeScript — works in Node.js and browsers.
 
