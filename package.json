@@ -1,6 +1,6 @@
 {
   "name": "xmlsax-typescript",
-  "version": "0.0.1",
+  "version": "1.0.0-rc.1",
   "description": "One-pass, streaming (SAX-style) XML parser for TypeScript (Node.js & browsers)",
   "author": "aas-core-works",
   "keywords": [
