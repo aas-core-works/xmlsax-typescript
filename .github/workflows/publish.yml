@@ -31,5 +31,17 @@ jobs:
       - name: Build project
         run: npm run build
 
+      - name: Resolve npm dist-tag
+        shell: bash
+        run: |
+          VERSION=$(node -p "require('./package.json').version")
+          if [[ "$VERSION" == *-* ]]; then
+            PRERELEASE=${VERSION#*-}
+            TAG=${PRERELEASE%%.*}
+            echo "NPM_TAG=$TAG" >> "$GITHUB_ENV"
+          else
+            echo "NPM_TAG=latest" >> "$GITHUB_ENV"
+          fi
+
       - name: Publish to npm (OIDC)
-        run: npm publish --provenance
+        run: npm publish --provenance --tag "$NPM_TAG"

@@ -14,7 +14,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/aas-core-works/xmlsax-typescript"
+    "url": "git+https://github.com/aas-core-works/xmlsax-typescript.git"
   },
   "bugs": {
     "url": "https://github.com/aas-core-works/xmlsax-typescript/issues"
