@@ -503,7 +503,7 @@ function finalizeElement(state: ElementState, options: ObjectBuilderSettings): X
     if (!hasText) {
       return "";
     }
-    return textValue as XmlObjectValue;
+    return textValue;
   }
 
   const result: XmlObjectMap = Object.create(null) as XmlObjectMap;
@@ -517,7 +517,7 @@ function finalizeElement(state: ElementState, options: ObjectBuilderSettings): X
   }
 
   if (hasText) {
-    result[options.textKey] = textValue as XmlObjectValue;
+    result[options.textKey] = textValue;
   }
 
   return result;
