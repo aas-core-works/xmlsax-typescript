@@ -37,3 +37,9 @@ Use concise, imperative commit messages and explain why in the body for non-triv
 1. Reference related issues in the pull request description.
 2. Include a short change summary and any breaking-change notes.
 3. Add or update tests whenever behavior changes.
+
+## Releases
+
+1. Create GitHub releases with v-prefixed semantic version tags only, for example v1.2.3 or v1.2.3-rc.1.
+2. The publish workflow derives the package version from the release tag and updates package.json and package-lock.json automatically before publishing to npm.
+3. After publish, the workflow commits version updates for package.json and package-lock.json back to main.
